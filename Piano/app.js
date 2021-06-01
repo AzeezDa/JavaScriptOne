@@ -1,5 +1,4 @@
-//var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-var audioCtx = new window.AudioContext();
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 var volume = audioCtx.createGain();
 
 const baseNote = 440.00;
