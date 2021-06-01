@@ -1,0 +1,43 @@
+body {
+    background-color: green;
+}
+
+#Synth {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.natural {
+    height: 200px;
+    width: 60px;
+    padding-top: 15vh;
+    margin-left: 1px;
+    margin-right: 1px;
+    background-color: white;
+    border: none;
+}
+
+.accidental {
+    position: absolute;
+    height: 100px;
+    font-size: 60%;
+    transform: translate(-25px, 0);
+    padding-top: 4vh;
+    border: none;
+    background-color: black;
+    color: white;
+    z-index: 2;
+}
+
+.natural:active {
+    background-color: lightgray;
+    transform: scale(99%) translate(0, -1px);
+}
+
+.accidental:active {
+    transform:translate(-25px, -2px) scale(97%);
+}
