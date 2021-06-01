@@ -53,6 +53,15 @@ function addNote(note, octave = 4) {
     } else {
         tag.classList.add("natural");
     }
+
+    tag.addEventListener("touchstart", event => {
+        play(note, octave);
+    });
+
+    tag.addEventListener("touchend", event => {
+        stop(note, octave);
+    });
+
     elem.appendChild(tag);
 }
 
