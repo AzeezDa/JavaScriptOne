@@ -5,11 +5,18 @@ body {
 }
 
 button {
+    background-color: darkgray;
     width: 100%;
-    height: 35vh;
+    height: 25vh;
     border: none;
     transition: 0.2s;
-    font-size: 8em;
+    font-size: xx-large;
+}
+
+#Tutorial {
+    background-color: darkgray;
+    text-align: center;
+    border-radius: 5px;
 }
 
 #Buttons {

@@ -1,7 +1,7 @@
 const colors = ["Red", "Green", "Blue", "Orange", "Yellow", 
                 "Black", "White", "Purple", "Pink", "Brown"];
 let currentColor = "";
-let colorText = {}, body = {}, buttons = [], score = {}, time = {};
+let colorText = {}, body = {}, buttons = [], score = {}, time = {}, info = {};
 let scoreAmount = 0;
 let seconds = 0;
 
@@ -14,6 +14,7 @@ window.onload = () => {
     buttons.push(document.getElementById("Button4"));
     score = document.getElementById("Score");
     time = document.getElementById("Time");
+    info = document.getElementById("Info");
 
     buttonIndices = Object.keys(buttons);
 
@@ -42,18 +43,27 @@ function NewColor() {
 
     colorText.innerHTML = colors[textColorIndex];
     colorText.style.color = colors[correctColorIndex];
+    info.style.color = colors[correctColorIndex];
     body.style.backgroundColor = colors[incorrectBackgroundColorIndex];
 
+    let usedColors = [];
     for (let i = 0; i < buttons.length; i++) {
         const elem = buttons[i];
         if (i == correctButton)
             elem.innerHTML = colors[correctColorIndex];
         else {
             let incorrectAnswer = Math.floor(Math.random() * colors.length);
-            while (incorrectAnswer == correctColorIndex)
+            let buttonTextColor = Math.floor(Math.random() * colors.length);
+            while (incorrectAnswer == correctColorIndex || usedColors.includes(incorrectAnswer))
                 incorrectAnswer = Math.floor(Math.random() * colors.length);
-            
+
+            usedColors.push(incorrectAnswer);
+
+            while (incorrectAnswer == buttonTextColor)
+                buttonTextColor = Math.floor(Math.random() * colors.length);
+
                 elem.innerHTML = colors[incorrectAnswer];
+                elem.style.color = colors[buttonTextColor];
         }
     }
 }
